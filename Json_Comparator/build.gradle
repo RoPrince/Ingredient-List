@@ -1,0 +1,34 @@
+group 'com.tgt.stores.repln.inbound'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    // Jenkins never uses mavelLocal
+    // jenkins needs -Pjenkins switch
+    if (!project.hasProperty("jenkins")) {
+        project.getRepositories().mavenLocal()
+    }
+    ext {
+        jsonVersion = "20180130"
+        lombokVersion = "1.18.0"
+        jacksonJsr310 = "2.9.0"
+        restAssuredVersion = "3.1.0"
+    }
+
+}
+
+apply plugin: 'java'
+
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url "https://binrepo.target.com/artifactory/tgt-repo" }
+    maven { url "https://binrepo.target.com/artifactory/stores-inbound-prod" }
+}
+
+dependencies {
+    compile("org.projectlombok:lombok:${lombokVersion}")
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonJsr310}")
+    compile group: 'com.tgt.stores.repln.inbound', name: 'receive-commons-libs', version: '1.0.3', changing: true
+}
