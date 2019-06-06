@@ -11,6 +11,10 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public class ConfigurationProperties {
 
+    public String getIngredientListUrl() {
+        return ingredientListUrl;
+    }
+
     @Value("${Ingredientlist.url}")
     public String ingredientListUrl;
 
