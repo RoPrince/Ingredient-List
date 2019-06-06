@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: stage
+
+server:
+  port: 8080
+
+---
+
+Ingredientlist.url: https://the-cocktail-db.p.rapidapi.com/list.php?i=list
