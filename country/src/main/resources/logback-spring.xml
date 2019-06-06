@@ -12,7 +12,6 @@
         </layout>
     </appender>
 
-    <!-- LOG everything at INFO level -->
     <root level="info">
         <appender-ref ref="Console"/>
     </root>
